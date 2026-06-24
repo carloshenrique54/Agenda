@@ -1,0 +1,13 @@
+:root{
+    --Fonte-titulos: Arial, Helvetica, sans-serif;
+    --Fonte-textos: Verdana, Geneva, Tahoma, sans-serif;
+    --Cor-titulos: linear-gradient(to right, #0084ff,#2dcaff);
+    --Cor-label: #2dcaff;
+    --Cor-sombras: #70bfff6b;
+    --Cor-cards: #494949;
+}
+
+body{
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

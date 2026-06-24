@@ -1,0 +1,98 @@
+#light{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #00bfff;
+    filter: blur(80px);
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+#background{
+    background-color: #F4F6F9;
+}
+
+main{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 0px var(--Cor-sombras);
+    padding: 20px;
+    gap: 10px;
+    background-color: var(--Cor-cards);
+    border-radius: 10px;
+    position: relative;
+}
+
+h1{
+    font-size: 2.5rem;
+    margin: 10px 0 10px;
+    background-image: var(--Cor-titulos);
+    background-clip: text;
+    color: transparent;
+    font-family: var(--Fonte-titulos);
+}
+
+.inputBox{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.inputBox label{
+    font-family: var(--Fonte-textos);
+    color: white;
+}
+
+.inputBox input{
+    width: 97.4%;
+    padding: 8px 0px 8px 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 3px solid transparent;
+    outline: none;
+    transition: ease 0.3s;
+}
+
+input:focus{
+    border: 3px solid #00bfff;
+}
+
+button{
+    width: 100%;
+    padding: 8px;
+    background-image: var(--Cor-titulos);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    transition: ease 0.3s;
+}
+
+button:hover{
+    transform: scale(1.03, 1.03);
+    box-shadow: 0px 0px 10px #00bfff5a;
+}
+
+button:focus{
+    transform: scale(0.95, 0.95);
+    box-shadow: none;
+    opacity: 70%;
+}
