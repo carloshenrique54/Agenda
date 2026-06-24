@@ -3,8 +3,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require 'sessao.php';
-require 'conn.php';
+require __DIR__ . '/services/conn.php';
+require __DIR__ . '/services/sessao.php';
 
 $email = trim($_POST["email"] ?? '');
 $password = $_POST["password"] ?? '';
