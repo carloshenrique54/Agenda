@@ -5,14 +5,10 @@
     border-radius: 50%;
     background: #00bfff;
     filter: blur(80px);
-    opacity: 0.5;
+    opacity: 0.4;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 2;
-}
-
-#background{
-    background-color: #F4F6F9;
 }
 
 main{
@@ -20,22 +16,40 @@ main{
     display: flex;
     height: 100vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     z-index: 2;
+    display: flex;
+    background-color: var(--Cor-cards);
 }
 
 form{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 50%;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 0px var(--Cor-sombras);
     padding: 20px;
     gap: 10px;
-    background-color: var(--Cor-cards);
-    border-radius: 10px;
     position: relative;
+    height: 60vh;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    height: 50vh;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.form img{
+    width: 35%;
+    margin: auto;
 }
 
 h1{
@@ -57,7 +71,7 @@ h1{
 
 .inputBox label{
     font-family: var(--Fonte-textos);
-    color: white;
+    color: black;
 }
 
 .inputBox input{
@@ -65,7 +79,7 @@ h1{
     padding: 8px 0px 8px 8px;
     margin-top: 5px;
     border-radius: 5px;
-    border: 3px solid transparent;
+    border: 3px solid rgba(0, 0, 0, 0.080);
     outline: none;
     transition: ease 0.3s;
 }
@@ -95,4 +109,21 @@ button:focus{
     transform: scale(0.95, 0.95);
     box-shadow: none;
     opacity: 70%;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links a{
+    color: #00bfff;
+    text-decoration: none;
+    transition: ease 0.3s;
+}
+
+.links a:hover{
+
 }
