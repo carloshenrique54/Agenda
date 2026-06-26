@@ -12,7 +12,7 @@
     <div id="light"></div>
         <main>
             <div class="form">
-                <form method="post" action="logar.php">
+                <form method="post" action="cadastrar.php">
                     <h1>Login</h1>
                     <div class="inputBox">
                         <label for="email">E-mail</label>
