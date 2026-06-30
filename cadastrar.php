@@ -39,12 +39,12 @@ if (mysqli_num_rows($result) > 0) {
     exit;
 }
 
-$sql = "INSERT INTO usuarios (nome, email, senha_hash) VALUES (?, ?, ?)";
+$sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
 
 $stmt = mysqli_prepare($conn, $sql);
 
 mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $hash);
 mysqli_stmt_execute($stmt);
 
-header("Location: login.php?cadastrado");
+header("Location: login.php?cadastrado");   
 exit;

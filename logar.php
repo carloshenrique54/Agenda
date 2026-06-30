@@ -14,13 +14,13 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL) || $password === '') {
     exit;
 }
 
-$stmt = $conn->prepare('SELECT id, nome, senha_hash FROM usuarios WHERE email = ?');
+$stmt = $conn->prepare('SELECT id, nome, senha FROM usuarios WHERE email = ?');
 $stmt->bind_param('s', $email);
 $stmt->execute();
 $result = $stmt -> get_result();
 $u = $result -> fetch_assoc();
 
-if(!$u || !password_verify($password, $u['senha_hash'])) {
+if(!$u || !password_verify($password, $u['senha'])) {
     header('Location: index.php?erro=2');
     exit;
 }
