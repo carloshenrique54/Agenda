@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="./styles/cadastro.css">
 </head>
 <body>
-    <div id="background">
-    <div id="light"></div>
-        <main>
+    <main>
+        <div class="form">
             <form method="post" action="cadastrar.php">
                 <h1>Cadastro</h1>
                 <div class="inputBox">
@@ -32,11 +31,12 @@
                 <button type="submit">Cadastrar</button>
                 <div class="links">
                     <a href="index.php">Ja tenho conta</a>
-                    <a href="#">Esqueci minha senha</a>
+                    <a href="recuperar_senha.php">Esqueci minha senha</a>
                 </div>
             </form>
-        </main>
-    </div>
+            <img src="./assets/images/login-image.png" alt="Imagem de login">
+        </div>
+    </main>
     <script src="./scripts/cadastro.js"></script>
 </body>
 </html>

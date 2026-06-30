@@ -8,20 +8,21 @@ require __DIR__ . '/services/sessao.php';
 
 $nome = trim($_POST['name']);
 $email = trim($_POST['email']);
-$hash = trim($_POST['password']);
-$confirm_password = trim($_POST['confirm_password']);   
+$password = $_POST['password'];
+$confirm_password = $_POST['confirm_password'];
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
-if(!filter_var($email, FILTER_VALIDATE_EMAIL) || $hash === '' || $nome   === '') {
+if(!filter_var($email, FILTER_VALIDATE_EMAIL) || $password === '' || $nome   === '') {
     header('Location: cadastro.php?erro=1');
     exit;
 }
 
-if($confirm_password !== $hash ){
+if($confirm_password !== $password ){
     header('Location: cadastro.php?erro=2');
     exit;
 }
 
-if(strlen($hash) < 8) {
+if(strlen($password) < 8) {
     header('Location: cadastro.php?erro=3');
     exit;
 }
@@ -34,7 +35,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if (mysqli_num_rows($result) > 0) {
-    header("Location: E-mail já cadastrado.");
+    header("Location: cadastro.php?erro=4");
     exit;
 }
 

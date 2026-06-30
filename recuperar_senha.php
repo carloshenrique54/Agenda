@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
     <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/recuperar_senha.css">
 </head>
 <body>
     <main>
         <div class="form">
-            <form method="post" action="logar.php">
-                <h1>Login</h1>
+            <form method="post" action="alterarsenha.php">
+                <h1>Recuperar Senha</h1>
                 <div class="inputBox">
                     <label for="email">E-mail</label>
                     <input name="email" type="text">
                 </div>
                 <div class="inputBox">
-                    <label for="password">Senha</label>
+                    <label for="password">Nova senha</label>
                     <input name="password" type="password">
+                </div>
+                <div class="inputBox">
+                    <label for="password">Confirmar nova senha</label>
+                    <input name="confirm_password" type="password">
                 </div>
                 <button type="submit">Login</button>
                 <div class="links">
                     <a href="cadastro.php">Não tenho conta</a>
-                    <a href="recuperar_senha.php">Esqueci minha senha</a>
+                    <a href="index.php">Ja tenho conta</a>  
                 </div>
             </form>
             <img src="./assets/images/login-image.png" alt="Imagem de login">
