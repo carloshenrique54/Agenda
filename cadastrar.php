@@ -46,5 +46,5 @@ $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $hash);
 mysqli_stmt_execute($stmt);
 
-header("Location: login.php?cadastrado");   
+header("Location: index.php?sucesso=cadastro");
 exit;

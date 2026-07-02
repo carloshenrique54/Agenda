@@ -45,7 +45,7 @@ $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "ss", $hash, $email);
 
 if (mysqli_stmt_execute($stmt)) {
-    header("Location: login.php?sucesso=senha_alterada");
+    header("Location: index.php?sucesso=senha");
     exit;
 } else {
     header("Location: recuperar_senha.php?erro=5");

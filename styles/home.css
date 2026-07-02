@@ -1,0 +1,212 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f6fa;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    background-image: var(--Cor-titulos);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+header a {
+    background-color: #fff;
+    padding: 8px 18px;
+    text-decoration: none;
+    color: #c81e3a;
+    border: 2px solid #c81e3a;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    transition: ease 0.3s;
+}
+
+header a:hover {
+    background-color: #c81e3a;
+    color: #fff;
+    transform: scale(1.05, 1.05);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 10px 50px 60px;
+}
+
+main section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.12);
+    padding: 24px;
+}
+
+main section h2 {
+    font-size: 1.6rem;
+    margin: 0 0 16px;
+    background-image: var(--Cor-titulos);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: var(--Fonte-titulos);
+}
+
+/* Card do formulário de nova tarefa */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1 1 340px;
+    background-color: rgb(229, 229, 229);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-image: var(--Cor-titulos);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+form button:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0px 0px 10px #00bfff5a;
+}
+
+form button:active {
+    transform: scale(0.97, 0.97);
+    box-shadow: none;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputBox label {
+    font-family: var(--Fonte-textos);
+    color: black;
+    margin-bottom: 3px;
+}
+
+.inputBox input,
+.inputBox textarea,
+.inputBox select {
+    width: 100%;
+    padding: 8px;
+    resize: vertical;
+    border-radius: 5px;
+    border: 3px solid #cfd8dc;
+    outline: none;
+    font-size: 0.95rem;
+    transition: ease 0.3s;
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus,
+.inputBox select:focus {
+    border-color: #00bfff;
+}
+
+main section:not(.form) {
+    flex: 2 1 420px;
+}
+
+main section:not(.form) > p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 14px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: ease 0.3s;
+}
+
+li:hover {
+    box-shadow: 0px 0px 8px rgba(33, 33, 33, 0.12);
+}
+
+li input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: #00bfff;
+    cursor: pointer;
+}
+
+li strong {
+    font-size: 1.05rem;
+}
+
+li p {
+    flex-basis: 100%;
+    margin: 4px 0 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+li span {
+    flex-basis: 100%;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+li a {
+    margin-left: auto;
+    color: #c81e3a;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: ease 0.3s;
+}
+
+li a:hover {
+    background-color: #fdecec;
+}

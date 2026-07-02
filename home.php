@@ -1,5 +1,8 @@
 <?php
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 require __DIR__ . '/services/conn.php';
 require __DIR__ . '/services/sessao.php';
 
@@ -31,8 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'adicion
             'INSERT INTO tarefas (usuario_id, titulo, descricao, prazo, prioridade, concluida, criado_em)
              VALUES (?, ?, ?, ?, ?, 0, NOW())'
         );
+
+        if (!$stmt) {
+            die('Erro no prepare (INSERT tarefas): ' . $conn->error);
+        }
+
         $stmt->bind_param('issss', $usuarioId, $titulo, $descricao, $prazo, $prioridade);
-        $stmt->execute();
+
+        if (!$stmt->execute()) {
+            die('Erro no execute (INSERT tarefas): ' . $stmt->error);
+        }
 
         header('Location: home.php');
         exit;
@@ -65,6 +76,11 @@ $stmt = $conn->prepare(
      WHERE usuario_id = ?
      ORDER BY concluida ASC, prazo IS NULL, prazo ASC, criado_em DESC'
 );
+
+if (!$stmt) {
+    die('Erro no prepare (SELECT tarefas): ' . $conn->error);
+}
+
 $stmt->bind_param('i', $usuarioId);
 $stmt->execute();
 $tarefas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -81,15 +97,20 @@ $rotuloPrioridade = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="icon" type="image/x-icon" href="./assets/lista.ico">
 </head>
 <body>
     <header>
         <h1>Olá, <?= htmlspecialchars($_SESSION['usuario']['nome']) ?></h1>
-        <a href="home.php?sair=1">Sair</a>
+        <a href="logout.php">Sair</a>
     </header>
 
     <main>
-        <section>
+        <section class="form">
             <h2>Nova tarefa</h2>
 
             <?php if ($erro): ?>
@@ -163,5 +184,23 @@ $rotuloPrioridade = [
             <?php endif; ?>
         </section>
     </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <p class="modal-icone" id="modalIcone"></p>
+            <h2 class="modal-titulo" id="modalTitulo">Sucesso!</h2>
+            <p class="modal-mensagem" id="modalMensagem"></p>
+            <button type="button" class="modal-botao" id="modalBotao">OK</button>
+        </div>
+    </div>
+
+    <script src="./scripts/modal.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get('sucesso') === 'login') {
+            abrirModal('Login realizado com sucesso! Bem-vindo(a).', 'sucesso');
+        }
+    </script>
 </body>
 </html>

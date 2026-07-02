@@ -33,5 +33,5 @@ $_SESSION['usuario'] = [
     'nome'=> $u['nome'],
 ];
 
-header('Location: home.php');
+header('Location: home.php?sucesso=login');
 exit;
