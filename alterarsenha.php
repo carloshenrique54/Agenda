@@ -39,7 +39,7 @@ if (mysqli_num_rows($result) === 0) {
 
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "UPDATE usuarios SET senha_hash = ? WHERE email = ?";
+$sql = "UPDATE usuarios SET senha = ? WHERE email = ?";
 $stmt = mysqli_prepare($conn, $sql);
 
 mysqli_stmt_bind_param($stmt, "ss", $hash, $email);
